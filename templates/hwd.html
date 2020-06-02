@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+
+        <main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 class="bd-title" id="content">How dose it work</h1>
+          <p class="bd-lead">In the SNOOP, we have utilized different natural language processing techniques and machine learning algorithms to order counterfeit news articles. First we read the train, test and validation data files then played out some preprocessing like tokenizing, stemming and so forth.</p>
+          <p class="bd-lead">There are some exploratory data analysis is performed like response variable distribution and data quality checks like null or missing values and so on.</p>
+          <p class="bd-lead">Strategies like basic bag-of-words and n-grams and then term frequency like tf-idf weighting are utilized to perform feature extraction and selection.</p>
+          <p class="bd-lead">We have construct all the classifiers for predicting the fake news detection.</p>
+          <p class="bd-lead">The extracted features are taken care of into various classfiers. We have utilized Naive-bayes, Logistic Regression, Linear SVM, Stochastic gradient decent and Random forest classifiers from sklearn. Every one of the extracted featues were utilized in the entirety of the classifiers. When fitting the model, we analyzed the f1 score and checked the confusion matrix. In the wake of fitting all the classifiers, two best peforming models were chosen as competitor models for fake news order. We have performed parameter tuning by executing GridSearchCV methos on these competitor models and picked best performing paramters for these classifier. At long last chosen model was utilized for fake news detection with the likelihood of truth. In Addition to this, We have additionally extracted the best 50 features from our term-frequency tfidf vectorizer to perceive what words are most and significant in every one of the classes. We have additionally utilized Precision-Recall and learning curves to perceive how preparing and test set performs when we increment the measure of information in our classifiers.</p>
+          <p class="bd-lead">Our at long last chose and best performnig classifer was Logistic Regression.</p>
+          <p class="bd-lead">It takes a news article as contribution from client then model is utilized for definite characterization yield that is appeared to client alongside likelihood of truth.</p>
+          {% endblock %}
+

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Snoop</title>
+  
+  <link rel="icon" href="{{ url_for('static',filename ='img/title_logo.jpg')}}" sizes="32x32" type="image/png" style="border-radius50%;">
+  <!--link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png"-->
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static',filename ='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{{ url_for('static',filename ='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static',filename ='vendor/simple-line-icons/css/simple-line-icons.css')}}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static',filename ='css/landing-page.min.css')}}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">
+    <img src="{{ url_for('static',filename ='img/web_logo.jpg')}}" width="120" height="40" alt="">
+  </a>
+  <a class="navbar-brand mr-0 mr-md-2" href="{{ url_for('static',filename ='img/title_logo.jpg')}}" aria-label="Snoop"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">about <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">Contact</a>
+      </li>  
+    </ul>
+    <div class="col-lg-10 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="https://www.facebook.com/lets.snoopp.9" target="_blank">
+                <i class="fab fa-facebook fa-2x fa-fw" aria-label="facebook"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="https://twitter.com/letsnoopp?s=08" target="_blank">
+                <i class="fab fa-twitter-square fa-2x fa-fw" aria-label="twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://instagram.com/letsnoopp?igshid=10sics4k86uj4" target="_blank">
+                <i class="fab fa-instagram fa-2x fa-fw" aria-label="instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+  </div>
+</nav>
+
+
+{% block body %} {% endblock %}
+
+
+  <!-- Footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="/about">About</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="/contact">Contact</a>
+            </li>
+            <!--li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Terms of Use</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Privacy Policy</a>
+            </li-->
+          </ul>
+    
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="https://www.facebook.com/lets.snoopp.9" target="_blank">
+                <i class="fab fa-facebook fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="https://twitter.com/letsnoopp?s=08" target="_blank">
+                <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://instagram.com/letsnoopp?igshid=10sics4k86uj4" target="_blank">
+                <i class="fab fa-instagram fa-2x fa-fw"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static',filename ='vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static',filename ='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+  </body>
+
+</body>
+
+</html>
