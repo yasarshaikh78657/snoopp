@@ -1,6 +1,6 @@
 beautifulsoup4>=4.8.0
 bs4>=0.0.1
-covid-india>=1.1.1
+covid-india>=1.1.3
 dataprep>=0.2.3
 DateTime>=4.3
 Flask>=1.1.1
