@@ -1,6 +1,5 @@
 import requests
 from flask import Flask,render_template, redirect, request
-from covid_india import states
 import pickle
 import bs4
 import time
@@ -18,13 +17,10 @@ load_model = pickle.load(open('final_model.sav', 'rb'))
 def covid_data_scraping():
     data = requests.get("https://www.mygov.in/covid-19")
     bs = bs4.BeautifulSoup(data.text, 'html.parser')
-    active_case= bs.find("div" , class_="information_row").find("div" , class_="iblock active-case").find("span", class_="icount").get_text()
-    discharge= bs.find("div" , class_="information_row").find("div" , class_="iblock discharge").find("span", class_="icount").get_text()
-    death= bs.find("div" , class_="information_row").find("div" , class_="iblock death_case").find("span", class_="icount").get_text()
-    active_case = int(active_case)
-    discharge = int(discharge)
-    death = int(death)
-    confirm = active_case + discharge + death
+    active_case= bs.find("div" , class_="information_row").find("div" , class_="iblock active-case").find("div" , class_="iblock_text").find("span", class_="icount").get_text()
+    discharge= bs.find("div" , class_="information_row").find("div" , class_="iblock discharge").find("div" , class_="iblock_text").find("span", class_="icount").get_text()
+    death= bs.find("div" , class_="information_row").find("div" , class_="iblock death_case").find("div" , class_="iblock_text").find("span", class_="icount").get_text()
+    confirm= bs.find("div" , class_="information_row").find("div" , class_="iblock t_case").find("div" , class_="iblock_text").find("span", class_="icount").get_text()
     return confirm,active_case,discharge,death
 
 def ttime():
@@ -39,20 +35,10 @@ def ttime():
 def index():
     cds = covid_data_scraping()
     T = ttime()
-    state='Gujarat'
-    data = states.getdata(state)
     return  render_template('index.html',
                                    title='add text '
-                                         'and submit',cds = cds,data=data,state=state ,T = T)
-										 
-@app.route('/state/',methods=["POST"])
-def search_statte():
-    cds = covid_data_scraping()
-    T = ttime()
-    if request.method == 'POST':
-        state = request.form['state']
-        data = states.getdata(state)
-        return render_template('index.html',data=data,state=state,cds = cds,T = T)
+                                         'and submit',cds = cds,T = T)
+										
 
 @app.route('/about')
 def about():
@@ -90,10 +76,8 @@ def fetch():
     strres = detecting_fake_news(str(var))
     cds = covid_data_scraping()
     T = ttime()
-    state='Gujarat'
-    data = states.getdata(state)
     tag = "* the accuracy is 81% so maybe prediction is wrong sometime"
-    return render_template('index.html', strres= strres,cds=cds,data=data,state=state,tag = tag,T = T)
+    return render_template('index.html', strres= strres,cds=cds,tag = tag,T = T)
 
 
 
@@ -101,3 +85,5 @@ def fetch():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
