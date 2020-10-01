@@ -1,3 +1,4 @@
+#import modules
 import requests
 from flask import Flask,render_template, redirect, request
 import pickle
@@ -10,7 +11,7 @@ from pytz import timezone
 
 app = Flask(__name__)
 
-
+#load the trained model
 load_model = pickle.load(open('final_model.sav', 'rb'))
 
 #function for scraping data from mygov.covid
@@ -23,6 +24,7 @@ def covid_data_scraping():
     confirm= bs.find("div" , class_="information_row").find("div" , class_="iblock t_case").find("div" , class_="iblock_text").find("span", class_="icount").get_text()
     return confirm,active_case,discharge,death
 
+#function for indian standerd time show
 def ttime():
     now_utc = datetime.now(timezone('UTC'))
     now_india = now_utc.astimezone(timezone('Asia/Kolkata'))
@@ -30,7 +32,7 @@ def ttime():
     return T
     
 
-    
+#index page    
 @app.route('/')
 def index():
     cds = covid_data_scraping()
@@ -39,15 +41,15 @@ def index():
                                    title='add text '
                                          'and submit',cds = cds,T = T)
 										
-
+#about page
 @app.route('/about')
 def about():
 	return render_template('about.html')
-	
+#contact page	
 @app.route('/contact')
 def contact():
 	return render_template('contact.html')
-	
+#how its work page	
 @app.route('/hwd')
 def hwd():
 	return render_template('hwd.html')
@@ -69,7 +71,7 @@ def detecting_fake_news(var):
           stc="Sorry, i can't understand!!!"
           return stc
       return stc
-  
+#result of model 
 @app.route('/result', methods=['POST'])
 def fetch():
     var = request.form["txt"]
